@@ -58,15 +58,15 @@ int[] StringSumm(int[,] matr)
     }
     return arraySumm;
 }
-void FindMaxSumm(int[] array)
+void FindMinSumm(int[] array)
 {
     int index = 0;
-    int max = array[0];
+    int min = array[0];
     for (int i = 1; i < array.Length; i++)
     {
-        if (array[i] > max) index = i;
+        if (array[i] < min) index = i;
     }
-    System.Console.WriteLine($"Строка с максимальной суммой: {index}");
+    System.Console.WriteLine($"Строка с минимальной суммой: {index}");
 }
 
 
@@ -84,5 +84,5 @@ else
     StringSumm(array);
     System.Console.WriteLine($"Массив с суммами: [{string.Join(",", StringSumm(array))}]");
     System.Console.WriteLine();
-    FindMaxSumm(StringSumm(array));
+    FindMinSumm(StringSumm(array));
 }
