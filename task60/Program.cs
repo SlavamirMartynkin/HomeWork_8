@@ -16,13 +16,12 @@ int[,,] Fill3DMatrix()
         {
             for (int k = 0; k < matrix.GetLength(2); k++)
             {
-                int rnd = new Random().Next(10, 100);
-                while (dict.ContainsKey(rnd)) 
+                matrix[i, j, k] = new Random().Next(10, 100);
+                while (dict.ContainsKey(matrix[i, j, k])) 
                 {
-                    rnd = new Random().Next(10, 100);
+                    matrix[i, j, k] = new Random().Next(10, 100);
                 }
-                dict.Add(rnd, 1);
-                matrix[i, j, k] = rnd;
+                dict.Add(matrix[i, j, k], 1);
             }
         }
     }
@@ -39,7 +38,6 @@ void Print3DMatrix(int[,,] matrix)
                 System.Console.WriteLine($"{matrix[i, j, k]} ({i},{j},{k})");
             }
         }
-
     }
 }
 
